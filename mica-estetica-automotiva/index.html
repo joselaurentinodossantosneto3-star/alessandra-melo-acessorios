@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mica Estética Automotiva</title>
+<meta name="description" content="Lavagem técnica, correção de pintura e vitrificação cerâmica 9H. Medimos o verniz antes de polir e mostramos o brilho antes e depois.">
+<meta name="theme-color" content="#0A0E0D">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230E3D2F'/%3E%3Cpath d='M32 12c9 12 14 19 14 26a14 14 0 0 1-28 0c0-7 5-14 14-26z' fill='%23F3F8F6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Hanken+Grotesk:wght@400..700&family=Geist+Mono:wght@400..600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#processo">Pular para o conteúdo</a>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="nav__bar">
+    <a class="nav__logo" href="#topo" aria-label="Mica, voltar ao início"><b>Mica</b><span>estética automotiva</span></a>
+    <nav class="nav__links" aria-label="Seções do site">
+      <a href="#processo">Processo</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#pacotes">Pacotes</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <a class="btn btn--tape nav__cta" href="#agendar"><span>Agendar</span></a>
+    <button class="nav__menu" type="button" id="menu-btn" aria-expanded="false" aria-controls="menu-panel">Menu</button>
+  </div>
+  <div class="nav__panel" id="menu-panel" hidden>
+    <a href="#processo">Processo</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#pacotes">Pacotes</a>
+    <a href="#duvidas">Dúvidas</a>
+    <a href="#agendar">Agendar</a>
+  </div>
+</header>
+
+<main id="topo">
+
+<!-- ================= HERO: a pintura viva ================= -->
+<section class="hero" id="hero" data-lamp="Clique: água">
+  <canvas class="paint" id="paint-hero" aria-hidden="true"></canvas>
+  <div class="hero__scrim" aria-hidden="true"></div>
+
+  <div class="wrap hero__in">
+    <div class="hero__top">
+      <p class="eyebrow">Estúdio de estética automotiva</p>
+      <div class="colors">
+        <p class="eyebrow" id="colors-label">Cor da pintura</p>
+        <div class="colors__row" id="colors" role="radiogroup" aria-labelledby="colors-label">
+          <button type="button" role="radio" aria-checked="true"  data-paint="verde"   style="--c:#0E3D2F"><span class="sr">Verde inglês</span></button>
+          <button type="button" role="radio" aria-checked="false" data-paint="azul"    style="--c:#0D2154"><span class="sr">Azul meia-noite</span></button>
+          <button type="button" role="radio" aria-checked="false" data-paint="vinho"   style="--c:#5C0E1C"><span class="sr">Vinho</span></button>
+          <button type="button" role="radio" aria-checked="false" data-paint="grafite" style="--c:#2E3236"><span class="sr">Grafite</span></button>
+          <button type="button" role="radio" aria-checked="false" data-paint="preto"   style="--c:#0B0C0D"><span class="sr">Preto piano</span></button>
+        </div>
+        <p class="colors__name" id="color-name" aria-live="polite">Verde inglês</p>
+      </div>
+    </div>
+
+    <h1 class="hero__title">
+      <span class="hero__pre">Pintura em estado de</span>
+      <span class="mirror" id="mirror" data-text="espelho.">espelho.</span>
+    </h1>
+
+    <div class="hero__bottom">
+      <div class="hero__copy">
+        <p class="hero__lead">Lavagem técnica, correção de pintura e vitrificação cerâmica. Medimos o verniz antes de encostar a politriz e mostramos o brilho antes e depois.</p>
+        <div class="hero__cta">
+          <a class="btn btn--tape" href="#agendar"><span>Agendar avaliação</span></a>
+          <a class="btn btn--ghost" href="#processo"><span>Ver o processo</span></a>
+        </div>
+      </div>
+      <dl class="specs">
+        <div><dt>9H</dt><dd>dureza da camada cerâmica</dd></div>
+        <div><dt>110°</dt><dd>ângulo de contato da água</dd></div>
+        <div><dt>3 anos</dt><dd>de proteção, com manutenção</dd></div>
+      </dl>
+    </div>
+
+    <p class="hero__hint" id="hero-hint"><i aria-hidden="true"></i>Clique na pintura. A água não gruda.</p>
+  </div>
+</section>
+
+<!-- ================= PROCESSO: 4 etapas sobre o mesmo painel ================= -->
+<section class="process" id="processo">
+  <div class="process__sticky">
+    <div class="process__stage" data-lamp="Luz">
+      <canvas class="paint" id="paint-process" role="img" aria-label="Painel de pintura passando por lavagem, descontaminação, polimento e vitrificação"></canvas>
+      <span class="tape tape--panel">Painel de teste · capô</span>
+
+      <dl class="hud" aria-hidden="true">
+        <div><dt>Brilho</dt><dd><b id="hud-gloss">58</b><i>GU</i></dd></div>
+        <div><dt>Verniz</dt><dd><b id="hud-clear">46</b><i>µm</i></dd></div>
+        <div><dt>Ângulo de contato</dt><dd><b id="hud-angle">64</b><i>°</i></dd></div>
+      </dl>
+    </div>
+
+    <div class="process__side">
+      <header class="process__head">
+        <span class="tape">O processo</span>
+        <ol class="process__dots" id="process-dots" aria-hidden="true"><li></li><li></li><li></li><li></li></ol>
+      </header>
+
+      <div class="process__steps" id="process-steps">
+        <article class="pstep is-active">
+          <p class="pstep__n">Etapa 1 de 4</p>
+          <h2>Lavagem <em>técnica.</em></h2>
+          <p>A espuma de pré-lavagem amolece a sujeira antes de qualquer contato. Depois vêm os dois baldes, a luva de microfibra e a secagem com ar.</p>
+          <p class="pstep__fact"><b>pH neutro</b><span>não ataca cera, selante nem borracha</span></p>
+        </article>
+        <article class="pstep">
+          <p class="pstep__n">Etapa 2 de 4</p>
+          <h2>Descon­taminação.</h2>
+          <p>Barra de argila e removedor ferroso tiram o que a lavagem não tira: piche, fuligem de freio e marca de chuva ácida.</p>
+          <p class="pstep__fact"><b>Lisa ao toque</b><span>a mão desliza sem agarrar na pintura</span></p>
+        </article>
+        <article class="pstep">
+          <p class="pstep__n">Etapa 3 de 4</p>
+          <h2>Correção de <em>pintura.</em></h2>
+          <p>Polimento em até três passos: corte, refino e lustro. Saem os riscos de lavagem, os hologramas e o aspecto opaco.</p>
+          <p class="pstep__fact"><b>2 µm</b><span>de verniz removidos, de um total perto de 46</span></p>
+        </article>
+        <article class="pstep">
+          <p class="pstep__n">Etapa 4 de 4</p>
+          <h2><em>Vitrificação</em> <span class="nh">9H.</span></h2>
+          <p>A camada cerâmica entra painel a painel. O brilho ganha profundidade, a água vira gota e escorre levando a sujeira.</p>
+          <p class="pstep__fact"><b>7 dias</b><span>de cura antes da primeira lavagem</span></p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVIÇOS ================= -->
+<section class="services sec" id="servicos">
+  <div class="wrap">
+    <header class="sec-head">
+      <span class="tape" data-reveal="tape">Serviços</span>
+      <h2 class="title" data-reveal>Escolha por onde <em>começar.</em></h2>
+      <p class="sec-lead" data-reveal>Cada serviço cuida de uma parte do carro. Passe por eles para ver onde a gente trabalha.</p>
+    </header>
+
+    <div class="services__grid">
+      <figure class="car" id="car" data-zone="pintura">
+        <svg viewBox="0 0 1000 400" role="img" aria-labelledby="car-title">
+          <title id="car-title">Desenho de um sedã de perfil com a área de cada serviço destacada</title>
+          <defs>
+            <linearGradient id="car-paint" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" class="car__stop-hi"/>
+              <stop offset=".5" class="car__stop-mid"/>
+              <stop offset="1" class="car__stop-lo"/>
+            </linearGradient>
+            <clipPath id="car-clip"><path d="M70 284C58 280 50 262 52 240C54 222 66 204 96 196C170 178 250 166 338 158C380 120 428 84 492 78C560 72 640 74 690 88C750 106 800 140 846 152C880 156 915 160 934 170C948 182 952 214 948 244C946 266 940 280 926 284L832.1 284A64 64 0 1 0 711.9 284L288.1 284A64 64 0 1 0 167.9 284Z"/></clipPath>
+          </defs>
+
+          <ellipse class="car__shadow" cx="500" cy="322" rx="440" ry="10"/>
+
+          <!-- pintura -->
+          <path class="car__fill z-pintura" d="M70 284C58 280 50 262 52 240C54 222 66 204 96 196C170 178 250 166 338 158C380 120 428 84 492 78C560 72 640 74 690 88C750 106 800 140 846 152C880 156 915 160 934 170C948 182 952 214 948 244C946 266 940 280 926 284L832.1 284A64 64 0 1 0 711.9 284L288.1 284A64 64 0 1 0 167.9 284Z"/>
+          <g clip-path="url(#car-clip)"><rect class="car__glint" x="-260" y="40" width="200" height="280"/></g>
+
+          <!-- motor (capô) -->
+          <path class="car__zone z-motor" d="M96 196C170 178 250 166 338 158L330 204C250 200 160 206 76 216Z"/>
+
+          <!-- vidros + interior -->
+          <path class="car__glass z-vidros z-interior" d="M356 158C394 126 436 100 494 93C558 87 630 89 678 101C722 116 766 140 792 152Z"/>
+          <g class="car__seats z-interior">
+            <path d="M470 156C464 132 474 110 492 108C506 108 510 126 506 156Z"/>
+            <path d="M640 156C632 134 640 114 658 112C672 112 678 130 676 156Z"/>
+            <path d="M400 156C412 142 428 138 442 146"/>
+          </g>
+
+          <!-- faróis -->
+          <path class="car__lamp z-farois" d="M58 226C78 210 108 201 142 198L134 212C108 214 84 221 62 234Z"/>
+          <path class="car__lamp car__lamp--rear" d="M948 196C932 184 906 175 878 172L884 184C906 186 930 193 949 208Z"/>
+          <path class="car__beam z-farois" d="M58 228L-40 204L-40 268L60 238Z"/>
+
+          <!-- linhas -->
+          <g class="car__lines">
+            <path pathLength="1" d="M70 284C58 280 50 262 52 240C54 222 66 204 96 196C170 178 250 166 338 158C380 120 428 84 492 78C560 72 640 74 690 88C750 106 800 140 846 152C880 156 915 160 934 170C948 182 952 214 948 244C946 266 940 280 926 284L832.1 284A64 64 0 1 0 711.9 284L288.1 284A64 64 0 1 0 167.9 284Z"/>
+            <path pathLength="1" d="M356 158C394 126 436 100 494 93C558 87 630 89 678 101C722 116 766 140 792 152Z"/>
+            <path pathLength="1" d="M566 90L560 155"/>
+            <path pathLength="1" d="M352 160C344 200 338 246 332 284"/>
+            <path pathLength="1" d="M560 156L554 284"/>
+            <path pathLength="1" d="M746 152C744 190 734 214 712 236"/>
+            <path pathLength="1" d="M96 208C300 190 700 184 936 192"/>
+            <path pathLength="1" d="M300 270L702 270"/>
+            <path pathLength="1" d="M500 178L532 177"/>
+            <path pathLength="1" d="M690 174L720 174"/>
+            <path pathLength="1" d="M354 152L330 146C322 150 322 158 330 162L352 164"/>
+            <path pathLength="1" d="M58 226C78 210 108 201 142 198L134 212C108 214 84 221 62 234Z"/>
+            <path pathLength="1" d="M948 196C932 184 906 175 878 172L884 184C906 186 930 193 949 208Z"/>
+            <path pathLength="1" d="M58 252C80 250 110 250 140 252"/>
+            <path pathLength="1" d="M64 266C84 264 110 264 134 266"/>
+          </g>
+
+          <!-- rodas -->
+          <circle class="car__well" cx="228" cy="262" r="63"/>
+          <circle class="car__well" cx="772" cy="262" r="63"/>
+          <g class="car__wheel z-rodas" style="--cx:228px;--cy:262px">
+            <circle class="car__tyre" cx="228" cy="262" r="56"/>
+            <circle class="car__rim" cx="228" cy="262" r="39"/>
+            <g class="car__spokes"><path d="M228 262L228 224M228 262L264.1 250.3M228 262L250.3 292.7M228 262L205.7 292.7M228 262L191.9 250.3"/><circle cx="228" cy="262" r="9"/></g>
+          </g>
+          <g class="car__wheel z-rodas" style="--cx:772px;--cy:262px">
+            <circle class="car__tyre" cx="772" cy="262" r="56"/>
+            <circle class="car__rim" cx="772" cy="262" r="39"/>
+            <g class="car__spokes"><path d="M772 262L772 224M772 262L808.1 250.3M772 262L794.3 292.7M772 262L749.7 292.7M772 262L735.9 250.3"/><circle cx="772" cy="262" r="9"/></g>
+          </g>
+
+          <line class="car__ground" x1="20" y1="318" x2="980" y2="318"/>
+          <!-- escala: detalhe do ofício -->
+          <g class="car__scale" aria-hidden="true">
+            <path d="M52 348L948 348M52 342L52 354M948 342L948 354"/>
+            <text x="500" y="372" text-anchor="middle">sedã médio · cerca de 9 m² de pintura</text>
+          </g>
+        </svg>
+        <figcaption class="car__cap"><span class="tape" id="car-zone">Pintura</span></figcaption>
+      </figure>
+
+      <div class="svc" id="svc" role="list"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PACOTES ================= -->
+<section class="packs sec" id="pacotes">
+  <div class="wrap">
+    <header class="sec-head sec-head--row">
+      <div>
+        <span class="tape" data-reveal="tape">Pacotes</span>
+        <h2 class="title" data-reveal>Três níveis de <em>brilho.</em></h2>
+      </div>
+      <fieldset class="sizes" data-reveal>
+        <legend>Porte do carro</legend>
+        <div class="seg" id="sizes">
+          <input type="radio" name="porte" id="porte-hatch" value="hatch"><label for="porte-hatch">Hatch</label>
+          <input type="radio" name="porte" id="porte-seda" value="seda" checked><label for="porte-seda">Sedã</label>
+          <input type="radio" name="porte" id="porte-suv" value="suv"><label for="porte-suv">SUV</label>
+          <input type="radio" name="porte" id="porte-picape" value="picape"><label for="porte-picape">Picape</label>
+        </div>
+      </fieldset>
+    </header>
+    <div class="packs__grid" id="packs"></div>
+    <p class="note packs__note">Valores de referência. O preço final sai da avaliação presencial, porque depende do estado da pintura.</p>
+  </div>
+</section>
+
+<!-- ================= AGENDAR ================= -->
+<section class="book sec" id="agendar">
+  <div class="wrap book__grid">
+    <div class="book__intro">
+      <span class="tape" data-reveal="tape">Agendamento</span>
+      <h2 class="title" data-reveal>Marque uma <em>avaliação.</em></h2>
+      <p class="sec-lead" data-reveal>A avaliação leva uns 20 minutos e não custa nada. A gente mede o verniz, olha a pintura na luz e diz o que vale a pena fazer.</p>
+      <ul class="book__facts" data-reveal>
+        <li><b>Com hora marcada</b>de segunda a sábado</li>
+        <li><b>Medição de verniz</b>em todos os painéis</li>
+        <li><b>Orçamento na hora</b>sem compromisso</li>
+      </ul>
+    </div>
+
+    <form class="form" id="book" novalidate data-reveal>
+      <div class="field">
+        <label for="f-nome">Seu nome</label>
+        <input type="text" id="f-nome" name="nome" autocomplete="name" placeholder="Como podemos te chamar">
+      </div>
+      <div class="field">
+        <label for="f-carro">Carro</label>
+        <input type="text" id="f-carro" name="carro" placeholder="Modelo e ano">
+      </div>
+      <div class="field">
+        <label for="f-servico">O que você procura</label>
+        <select id="f-servico" name="servico"></select>
+      </div>
+      <div class="field">
+        <label for="f-data">Melhor dia</label>
+        <input type="date" id="f-data" name="data">
+      </div>
+      <div class="field field--full">
+        <label for="f-obs">Algum detalhe?</label>
+        <textarea id="f-obs" name="obs" rows="2" placeholder="Riscos, manchas, cor do carro..."></textarea>
+      </div>
+
+      <div class="msg field--full">
+        <p class="eyebrow">Sua mensagem</p>
+        <p class="msg__bubble" id="msg" tabindex="0"></p>
+        <div class="msg__actions">
+          <a class="btn btn--ink" id="msg-send" href="#agendar" target="_blank" rel="noopener" hidden><span>Abrir no WhatsApp</span></a>
+          <button class="btn btn--ink" type="button" id="msg-copy"><span>Copiar mensagem</span></button>
+          <p class="msg__status" id="msg-status" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ================= DÚVIDAS ================= -->
+<section class="faq sec" id="duvidas">
+  <div class="wrap faq__grid">
+    <header class="sec-head">
+      <span class="tape" data-reveal="tape">Dúvidas</span>
+      <h2 class="title" data-reveal>O que todo mundo <em>pergunta.</em></h2>
+    </header>
+    <div class="faq__list" id="faq">
+      <div class="faq__item is-open">
+        <h3><button type="button" aria-expanded="true" aria-controls="faq-1" id="faq-b1">Polimento afina o verniz?<i aria-hidden="true"></i></button></h3>
+        <div class="faq__a" id="faq-1" role="region" aria-labelledby="faq-b1"><div><p>Afina, um pouco. Cada correção remove de 1 a 3 mícrons de um verniz que costuma ter entre 40 e 50. Por isso medimos a espessura antes e cortamos só o necessário. Polir toda hora é o que acaba com a pintura.</p></div></div>
+      </div>
+      <div class="faq__item">
+        <h3><button type="button" aria-expanded="false" aria-controls="faq-2" id="faq-b2">Quanto tempo dura a vitrificação?<i aria-hidden="true"></i></button></h3>
+        <div class="faq__a" id="faq-2" role="region" aria-labelledby="faq-b2"><div><p>De 1 a 3 anos, conforme o produto e o cuidado. Lavar com shampoo neutro e fugir de lava-rápido com escova faz mais diferença do que a marca do coating.</p></div></div>
+      </div>
+      <div class="faq__item">
+        <h3><button type="button" aria-expanded="false" aria-controls="faq-3" id="faq-b3">Vitrificação protege contra risco?<i aria-hidden="true"></i></button></h3>
+        <div class="faq__a" id="faq-3" role="region" aria-labelledby="faq-b3"><div><p>Segura os riscos leves de lavagem, mas não é blindagem. Pedrada e risco de chave atravessam qualquer coating. Para isso existe a película de proteção de pintura, o PPF.</p></div></div>
+      </div>
+      <div class="faq__item">
+        <h3><button type="button" aria-expanded="false" aria-controls="faq-4" id="faq-b4">Carro zero precisa de polimento?<i aria-hidden="true"></i></button></h3>
+        <div class="faq__a" id="faq-4" role="region" aria-labelledby="faq-b4"><div><p>Quase sempre pede um refino leve. Carro novo costuma sair da concessionária com marcas da lavagem de entrega. Vitrificar por cima delas é selar o defeito.</p></div></div>
+      </div>
+      <div class="faq__item">
+        <h3><button type="button" aria-expanded="false" aria-controls="faq-5" id="faq-b5">Quando posso lavar depois?<i aria-hidden="true"></i></button></h3>
+        <div class="faq__a" id="faq-5" role="region" aria-labelledby="faq-b5"><div><p>Depois de 7 dias, que é o tempo de cura. Se pegar chuva antes, tudo bem: seque com microfibra limpa, sem esfregar.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= RODAPÉ ================= -->
+<footer class="foot" id="rodape">
+  <div class="wrap foot__top">
+    <p class="foot__call">Seu carro merece <em>se ver.</em></p>
+    <a class="btn btn--tape" href="#agendar"><span>Agendar avaliação</span></a>
+  </div>
+  <div class="wrap foot__cols">
+    <div>
+      <p class="foot__logo">Mica</p>
+      <p>Estúdio de estética automotiva. Lavagem técnica, correção de pintura e vitrificação.</p>
+    </div>
+    <nav aria-label="Rodapé">
+      <p class="eyebrow">Navegar</p>
+      <a href="#processo">Processo</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#pacotes">Pacotes</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <div>
+      <p class="eyebrow">Depois do serviço</p>
+      <p class="foot__care">Lave com shampoo neutro e dois baldes. Seque com microfibra ou ar. Evite lava-rápido com escova e não encere por cima da vitrificação.</p>
+    </div>
+  </div>
+  <p class="foot__word" aria-hidden="true"><span id="foot-word">Mica</span></p>
+</footer>
+
+<div class="lamp" id="lamp" aria-hidden="true"><i></i><span></span></div>
+
+<script src="js/app.js" defer></script>
+</body>
+</html>
