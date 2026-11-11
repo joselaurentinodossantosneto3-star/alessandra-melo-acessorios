@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Avus Motorsports — Alta performance para carros premium | Goiânia</title>
+<meta name="description" content="Reprogramação de ECU e TCU, escapamentos em inox e titânio, revisão, diagnóstico e dinamômetro para carros premium. Avus Motorsports, Goiânia — desde 2018.">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600&family=Saira+Extra+Condensed:ital,wght@1,600;1,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0b; --panel:#121214; --line:#26262a; --line-soft:#1a1a1d;
+  --ink:#efece6; --mute:#8d8a84; --red:#ff3b1f; --red-dim:#7a1d10;
+  --display:"Saira Extra Condensed","Arial Narrow",sans-serif;
+  --body:"Manrope",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --gutter:clamp(16px,4vw,56px);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 var(--gutter)}
+.mono{font:500 11px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.mono b{color:var(--red);font-weight:500}
+h1,h2,h3{font-family:var(--display);font-style:italic;font-weight:800;text-transform:uppercase;line-height:.88;letter-spacing:-.005em}
+h2{font-size:clamp(48px,8vw,104px)}
+section{padding:clamp(72px,11vw,150px) 0;border-top:1px solid var(--line-soft)}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(10,10,11,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:24px}
+.logo{font:italic 800 30px/1 var(--display);letter-spacing:.02em;display:flex;align-items:baseline;gap:8px}
+.logo span{font:500 10px var(--mono);letter-spacing:.2em;color:var(--mute);font-style:normal}
+.nav ul{display:flex;gap:28px;list-style:none;padding:0}
+.nav ul a{font-size:13px;color:var(--mute);transition:color .2s}
+.nav ul a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;font:600 13px var(--body);letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--ink);transition:background .2s,color .2s,border-color .2s;white-space:nowrap}
+.btn:hover{background:var(--ink);color:var(--bg)}
+.btn.red{background:var(--red);border-color:var(--red);color:#0a0a0b}
+.btn.red:hover{background:var(--ink);border-color:var(--ink)}
+.btn.sm{padding:10px 16px;font-size:12px}
+.btn svg{width:14px;height:14px}
+@media(max-width:820px){.nav ul{display:none}}
+
+/* hero */
+.hero{border:0;padding:clamp(110px,16vw,170px) 0 0;position:relative}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(60% 50% at 78% 38%,rgba(255,59,31,.16),transparent 70%),
+  linear-gradient(var(--line-soft) 1px,transparent 1px) 0 0/100% 64px;
+  mask-image:linear-gradient(#000 55%,transparent);pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,5vw,72px);align-items:end}
+.hero h1{font-size:clamp(84px,10.5vw,168px);margin:18px 0 26px -.04em}
+.hero h1 i{color:var(--red);font-style:inherit}
+.hero p.lead{max-width:44ch;font-size:clamp(16px,1.5vw,19px);color:#c9c5bd}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.dyno{background:linear-gradient(180deg,#141416,#0d0d0f);border:1px solid var(--line);padding:18px 18px 14px}
+.dyno-head,.dyno-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.dyno svg{display:block;width:100%;height:auto;margin:10px 0 8px}
+.dyno .grid line{stroke:var(--line);stroke-width:1}
+.dyno text{font:500 9px var(--mono);fill:var(--mute);letter-spacing:.1em}
+.curve{fill:none;stroke-width:2.5;stroke-linecap:round;stroke-dasharray:900;stroke-dashoffset:900;animation:draw 2.2s cubic-bezier(.6,0,.2,1) .3s forwards}
+.curve.stock{stroke:#5b5954;stroke-width:1.5;animation-delay:0s}
+.curve.avus{stroke:var(--red);filter:drop-shadow(0 0 8px rgba(255,59,31,.6))}
+.area{fill:url(#g);opacity:0;animation:fade 1s 1.8s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+.legend{display:flex;gap:18px}
+.legend span::before{content:"";display:inline-block;width:14px;height:2px;background:#5b5954;vertical-align:middle;margin-right:8px}
+.legend span.a::before{background:var(--red)}
+.stats{position:relative;margin-top:clamp(48px,7vw,90px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr)}
+.stats div{padding:24px var(--gutter) 28px;border-right:1px solid var(--line)}
+.stats div:last-child{border-right:0}
+.stats strong{display:block;font:italic 800 clamp(40px,5vw,68px)/.9 var(--display);margin-bottom:8px}
+.stats strong small{font-size:.45em;color:var(--red);margin-left:4px}
+@media(max-width:900px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr)}
+  .hero h1{font-size:clamp(84px,19vw,170px)}
+  .stats{grid-template-columns:1fr 1fr}
+  .stats div:nth-child(2){border-right:0}
+  .stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+}
+
+/* marquee */
+.ticker{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;background:var(--panel)}
+.ticker div{display:flex;gap:48px;width:max-content;animation:slide 38s linear infinite;font:italic 600 22px var(--display);text-transform:uppercase;letter-spacing:.06em;color:var(--mute)}
+.ticker span::after{content:"/";color:var(--red);margin-left:48px}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* services */
+.sec-head{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;margin-bottom:clamp(36px,5vw,64px)}
+.sec-head p{max-width:38ch;color:var(--mute)}
+.svc{display:grid;grid-template-columns:minmax(260px,340px) minmax(0,1fr);border:1px solid var(--line)}
+.tabs{display:flex;flex-direction:column;border-right:1px solid var(--line)}
+.tabs button{display:flex;justify-content:space-between;align-items:baseline;gap:12px;text-align:left;padding:22px 24px;border-bottom:1px solid var(--line);font:italic 600 30px/1 var(--display);text-transform:uppercase;color:var(--mute);transition:color .2s,background .2s}
+.tabs button:last-child{border-bottom:0}
+.tabs button small{font:500 10px var(--mono);font-style:normal;letter-spacing:.14em;white-space:nowrap}
+.tabs button:hover{color:var(--ink)}
+.tabs button[aria-selected=true]{color:var(--ink);background:var(--panel);box-shadow:inset 3px 0 0 var(--red)}
+.tabs button[aria-selected=true] small{color:var(--red)}
+.panel{padding:clamp(24px,4vw,48px);display:flex;flex-direction:column;gap:28px}
+.panel>p{font-size:clamp(18px,2vw,24px);line-height:1.4;max-width:34ch}
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:auto;padding:0}
+.phases li{list-style:none;background:var(--bg);padding:22px 20px 26px}
+.phases h3{font-size:24px;margin:10px 0 10px;font-weight:600}
+.phases p{font-size:14px;color:var(--mute);line-height:1.55}
+@media(max-width:860px){
+  .sec-head{grid-template-columns:1fr}
+  .svc{grid-template-columns:1fr}
+  .tabs{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--line);scrollbar-width:none}
+  .tabs button{border-bottom:0;border-right:1px solid var(--line);font-size:24px;padding:16px 18px;white-space:nowrap}
+  .tabs button[aria-selected=true]{box-shadow:inset 0 -3px 0 var(--red)}
+  .tabs button small{display:none}
+  .phases{grid-template-columns:1fr}
+}
+
+/* builds */
+.builds{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.build{background:var(--bg);padding:26px 24px 24px;min-height:300px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:background .25s}
+.build:hover{background:var(--panel)}
+.build::after{content:attr(data-n);position:absolute;right:-6px;bottom:-34px;font:italic 800 170px/1 var(--display);color:transparent;-webkit-text-stroke:1px var(--line);transition:-webkit-text-stroke-color .25s}
+.build:hover::after{-webkit-text-stroke-color:var(--red-dim)}
+.build h3{font-size:clamp(34px,3.4vw,46px);margin:14px 0 12px}
+.build p{font-size:14px;color:var(--mute);max-width:32ch;position:relative;z-index:1}
+.build .fig{margin-top:auto;padding-top:24px;font:italic 800 clamp(44px,4.6vw,64px)/.9 var(--display);color:var(--red);position:relative;z-index:1}
+.build .fig small{display:block;font:500 10px var(--mono);font-style:normal;letter-spacing:.14em;color:var(--mute);margin-top:8px;text-transform:uppercase}
+@media(max-width:980px){.builds{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.builds{grid-template-columns:1fr}.build{min-height:240px}}
+
+/* story */
+.story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:start}
+.story blockquote{font:italic 800 clamp(40px,5.4vw,76px)/.92 var(--display);text-transform:uppercase}
+.story blockquote em{color:var(--red);font-style:inherit}
+.story .txt p{color:#c9c5bd;margin-bottom:18px;max-width:52ch}
+.timeline{margin-top:36px;border-top:1px solid var(--line)}
+.timeline div{display:grid;grid-template-columns:90px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.timeline strong{font:italic 800 30px/1 var(--display);color:var(--red)}
+.timeline span{font-size:14px;color:var(--mute)}
+@media(max-width:860px){.story .wrap{grid-template-columns:1fr}}
+
+/* contact */
+.contact{background:var(--red);color:#0a0a0b;border:0}
+.contact h2{font-size:clamp(72px,14vw,220px);margin:14px 0 30px -.03em}
+.contact .mono{color:#4a1108}
+.contact .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.contact .btn{border-color:#0a0a0b}
+.contact .btn.dark{background:#0a0a0b;color:var(--ink)}
+.contact .btn:hover{background:var(--ink);border-color:var(--ink);color:#0a0a0b}
+.info{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:clamp(48px,7vw,88px);padding-top:24px;border-top:1px solid rgba(10,10,11,.3)}
+.info p{font-weight:600;font-size:17px;margin-top:6px}
+@media(max-width:700px){.info{grid-template-columns:1fr}}
+
+footer{padding:28px 0 96px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+.wa{position:fixed;right:18px;bottom:18px;z-index:60;width:56px;height:56px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 8px 28px rgba(0,0,0,.5);transition:transform .2s}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:28px;height:28px;fill:#fff}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .curve{stroke-dashoffset:0}.area{opacity:1}.reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#topo" aria-label="Avus Motorsports — início">AVUS <span>Motorsports</span></a>
+    <nav aria-label="Principal">
+      <ul>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#historia">História</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <a class="btn red sm" data-wa href="#">Agendar</a>
+  </div>
+</header>
+
+<main id="topo">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="mono"><b>●</b> Goiânia — GO &nbsp;/&nbsp; ECU · TCU · Escapamento · Oficina</p>
+        <h1>Se repro<wbr>grame<i>.</i></h1>
+        <p class="lead">Reprogramação, escapamentos sob medida e manutenção para carros premium. Tudo medido no dinamômetro, da primeira leitura ao resultado final — porque o seu carro tem mais a entregar do que saiu de fábrica.</p>
+        <div class="cta">
+          <a class="btn red" data-wa href="#">Agendar pelo WhatsApp
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13 13 3M5 3h8v8"/></svg></a>
+          <a class="btn" href="#servicos">Ver serviços</a>
+        </div>
+      </div>
+
+      <figure class="dyno" aria-label="Gráfico ilustrativo de dinamômetro: curva original e curva após acerto Avus">
+        <div class="dyno-head mono"><span>Dyno run / potência na roda</span><span><b>● REC</b></span></div>
+        <svg viewBox="0 0 600 320" role="img" aria-hidden="true">
+          <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff3b1f" stop-opacity=".28"/><stop offset="1" stop-color="#ff3b1f" stop-opacity="0"/></linearGradient></defs>
+          <g class="grid">
+            <line x1="40" y1="40" x2="580" y2="40"/><line x1="40" y1="100" x2="580" y2="100"/><line x1="40" y1="160" x2="580" y2="160"/><line x1="40" y1="220" x2="580" y2="220"/><line x1="40" y1="280" x2="580" y2="280"/>
+            <line x1="40" y1="40" x2="40" y2="280"/><line x1="175" y1="40" x2="175" y2="280"/><line x1="310" y1="40" x2="310" y2="280"/><line x1="445" y1="40" x2="445" y2="280"/><line x1="580" y1="40" x2="580" y2="280"/>
+          </g>
+          <path class="area" d="M40,262 C150,200 280,90 420,58 S540,48 580,64 L580,280 L40,280Z"/>
+          <path class="curve stock" d="M40,270 C160,232 300,160 420,130 S540,128 580,146"/>
+          <path class="curve avus" d="M40,262 C150,200 280,90 420,58 S540,48 580,64"/>
+          <text x="40" y="300">2000</text><text x="163" y="300">3500</text><text x="298" y="300">5000</text><text x="433" y="300">6500</text><text x="548" y="300">RPM</text>
+        </svg>
+        <div class="dyno-foot mono">
+          <span class="legend"><span>Original</span><span class="a">Acerto Avus</span></span>
+          <span>Curva ilustrativa</span>
+        </div>
+      </figure>
+    </div>
+
+    <div class="stats">
+      <div><strong>2018</strong><span class="mono">Ano de fundação, Setor Marista</span></div>
+      <div><strong>3,35<small>s</small></strong><span class="mono">100–200 km/h · BMW M340i</span></div>
+      <div><strong>Nº1</strong><span class="mono">BMW M3 CS · record América do Sul</span></div>
+      <div><strong>87<small>mil+</small></strong><span class="mono">Seguidores no Instagram</span></div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true"><div id="ticker"></div></div>
+
+  <section id="servicos">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><p class="mono"><b>01</b> / Serviços</p><h2>Cada etapa,<br>medida.</h2></div>
+        <p>Todo serviço na Avus segue três fases: diagnóstico, execução e validação. Você acompanha tudo com fotos, vídeos e números.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="tabs" role="tablist" aria-label="Serviços" id="tabs"></div>
+        <div class="panel" role="tabpanel" id="panel" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projetos">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><p class="mono"><b>02</b> / Projetos</p><h2>Números<br>que falam.</h2></div>
+        <p>Alguns carros que passaram pelo nosso box. Os resultados completos estão no Instagram <a href="https://www.instagram.com/avus.motorsports" target="_blank" rel="noopener" style="color:var(--ink);border-bottom:1px solid var(--red)">@avus.motorsports</a>.</p>
+      </div>
+      <div class="builds reveal">
+        <a class="build" data-n="01" href="https://instagram.com/p/DMvEwerucEK" target="_blank" rel="noopener">
+          <span class="mono">BMW · G80</span><h3>M3 CS</h3>
+          <p>Kit turbo 7275NG e motor montado in house. Record da América do Sul com o carro em peso total.</p>
+          <div class="fig">Record<small>América do Sul · full weight</small></div>
+        </a>
+        <a class="build" data-n="02" href="https://instagram.com/p/DIWHMHTOAze" target="_blank" rel="noopener">
+          <span class="mono">BMW · G20</span><h3>M340i</h3>
+          <p>A terceira BMW mais rápida da América do Sul, com acerto completo de ECU e TCU feito na casa.</p>
+          <div class="fig">3,35 s<small>100–200 km/h</small></div>
+        </a>
+        <a class="build" data-n="03" href="https://www.instagram.com/reel/DLXRqQyuGkV/" target="_blank" rel="noopener">
+          <span class="mono">Lamborghini</span><h3>Urus</h3>
+          <p>Stage 2 no V8 biturbo. O SUV que já impressiona de fábrica, agora respondendo como deve.</p>
+          <div class="fig">+90 whp<small>Stage 2</small></div>
+        </a>
+        <a class="build" data-n="04" href="https://instagram.com/p/DfZos6Fh2Re" target="_blank" rel="noopener">
+          <span class="mono">RAM</span><h3>Classic V8</h3>
+          <p>Whipple Supercharger instalado e acertado pela Avus. Picape com resposta de muscle car.</p>
+          <div class="fig">Whipple<small>Supercharger + acerto</small></div>
+        </a>
+        <a class="build" data-n="05" href="https://www.instagram.com/avus.motorsports" target="_blank" rel="noopener">
+          <span class="mono">BMW · F97</span><h3>X3 M Competition</h3>
+          <p>Reprogramação Stage 2 para o SUV esportivo da família M, sem abrir mão do uso diário.</p>
+          <div class="fig">Stage 2<small>ECU · TCU</small></div>
+        </a>
+        <a class="build" data-n="06" href="https://instagram.com/p/DfhZxiJBnca" target="_blank" rel="noopener">
+          <span class="mono">Mercedes-Benz · 1997</span><h3>C280</h3>
+          <p>Escapamento sob medida não é só para carro novo. Um clássico com projeto exclusivo em inox.</p>
+          <div class="fig">Inox<small>Escapamento sob medida</small></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="historia" class="story">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="mono" style="margin-bottom:22px"><b>03</b> / História</p>
+        <blockquote>A experiência é única quando a máquina <em>responde como deve.</em></blockquote>
+      </div>
+      <div class="txt reveal">
+        <p>A Avus nasceu em 2018 em um único corredor na Rua 1123, no Setor Marista, em Goiânia. A ideia era simples: tratar performance com o mesmo rigor de uma engenharia de fábrica, e tratar o cliente como alguém que ama o próprio carro.</p>
+        <p>Hoje atendemos de revisões de rotina a projetos que quebram recordes continentais, com reprogramações customizadas para BMW enviadas para o mundo inteiro. O princípio continua o mesmo: nada sai daqui sem ser medido.</p>
+        <div class="timeline">
+          <div><strong>2018</strong><span>Primeiro box, em um corredor na Rua 1123, Setor Marista.</span></div>
+          <div><strong>BR</strong><span>ECU e TCU, escapamentos em inox e titânio, oficina e dinamômetro próprios.</span></div>
+          <div><strong>World</strong><span>Custom ECU | TCU para BMW, com atendimento remoto internacional.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="contact">
+    <div class="wrap">
+      <p class="mono">04 / Contato</p>
+      <h2>Traz seu carro.</h2>
+      <div class="row">
+        <a class="btn dark" data-wa href="#">Falar no WhatsApp</a>
+        <a class="btn" href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x935ef16d620a5019:0xaf36d36097f5ffd1" target="_blank" rel="noopener">Como chegar</a>
+        <a class="btn" href="https://www.instagram.com/avus.motorsports" target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <div class="info">
+        <div><span class="mono">Telefone / WhatsApp</span><p><a href="tel:+556236229489">(62) 3622-9489</a></p></div>
+        <div><span class="mono">Onde</span><p>Setor Marista, Goiânia — GO</p></div>
+        <div><span class="mono">Atendimento</span><p>Com agendamento prévio</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap mono">
+    <span>© <span id="ano"></span> Avus Motorsports</span>
+    <span>Se reprograme.</span>
+  </div>
+</footer>
+
+<a class="wa" data-wa href="#" aria-label="Conversar no WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.200 8.200 0 0 1-4.200-1.150l-.3-.18-3 .8.8-2.900-.2-.3A8.200 8.200 0 1 1 12 20.200Zm4.500-6.100c-.25-.120-1.460-.720-1.690-.800-.230-.080-.390-.120-.560.120-.160.250-.640.800-.780.970-.140.160-.290.180-.530.060a6.700 6.700 0 0 1-3.340-2.920c-.250-.430.250-.400.720-1.340.080-.160.040-.300-.020-.430-.060-.120-.560-1.340-.760-1.840-.200-.480-.400-.420-.560-.420h-.470a.900.900 0 0 0-.660.300 2.760 2.760 0 0 0-.860 2.050c0 1.210.880 2.380 1 2.540.130.160 1.730 2.650 4.200 3.710 1.560.680 2.170.730 2.950.620.470-.070 1.460-.600 1.670-1.170.200-.580.200-1.070.140-1.170-.060-.110-.220-.170-.470-.290Z"/></svg>
+</a>
+
+<script>
+const WA = 'https://wa.me/556236229489?text=' + encodeURIComponent('Olá, equipe Avus! Vim pelo site e gostaria de agendar um atendimento.');
+document.querySelectorAll('[data-wa]').forEach(a => { a.href = WA; a.target = '_blank'; a.rel = 'noopener'; });
+document.getElementById('ano').textContent = new Date().getFullYear();
+
+const marcas = ['BMW','Mercedes-Benz','Lamborghini','RAM','GMC','Remap ECU','Remap TCU','Inox','Titanium','Dinamômetro'];
+document.getElementById('ticker').innerHTML = [...marcas, ...marcas].map(m => `<span>${m}</span>`).join('');
+
+const servicos = [
+  { nome: 'Remap', tag: 'ECU · TCU',
+    resumo: 'Reprogramação personalizada de motor e câmbio, do uso diário ao esportivo.',
+    fases: [
+      ['Diagnóstico e log', 'Checagem da integridade mecânica e log inicial: pressão de turbo, ponto de ignição e limites originais.'],
+      ['Acerto dos mapas', 'Ajuste preciso dos mapas de injeção para mais potência e torque, com margem de segurança para o conjunto.'],
+      ['Validação no dyno', 'Testes no dinamômetro confirmam os ganhos. Carro mais forte, responsivo e eficiente.']] },
+  { nome: 'Escapamentos', tag: 'Inox · Titanium',
+    resumo: 'Sistemas projetados e fabricados sob medida, com ronco encorpado e fluxo eficiente.',
+    fases: [
+      ['Análise do sistema', 'Avaliamos motor, escapamento original, abafadores, seu objetivo de uso e a legislação vigente.'],
+      ['Projeto e fabricação', 'Fabricação em inox ou titânio com instalação no mais alto padrão de durabilidade e segurança.'],
+      ['Teste de sonoridade', 'Validamos qualidade e ronco. Som esportivo exclusivo, sem comprometer a dirigibilidade.']] },
+  { nome: 'Revisão', tag: 'Preventiva',
+    resumo: 'Inspeção completa com fotos, vídeos e orçamento transparente antes de qualquer troca.',
+    fases: [
+      ['Inspeção detalhada', 'Freios, suspensão, fluidos, filtros e elétrica. Você recebe fotos e vídeos de tudo que foi vistoriado.'],
+      ['Trocas e ajustes', 'Óleo, filtros, pastilhas e velas com produtos de alta qualidade, dentro da especificação do fabricante.'],
+      ['Teste final', 'O carro é testado antes da entrega: seguro, confiável e pronto para o dia a dia.']] },
+  { nome: 'Manutenção', tag: 'Diagnóstico',
+    resumo: 'Motor, transmissão, suspensão e eletrônica embarcada com equipamento de ponta.',
+    fases: [
+      ['Leitura completa', 'Análise dos sistemas mecânicos e eletrônicos para encontrar a falha antes que ela cresça.'],
+      ['Reparo preciso', 'Reparos e substituições com peças de alta qualidade e técnica adequada a cada plataforma.'],
+      ['Testes rigorosos', 'Cada intervenção é validada. Você recebe o carro em perfeito estado.']] },
+  { nome: 'Dinamômetro', tag: 'Medição',
+    resumo: 'Potência e torque nas rodas, medidos de verdade — antes e depois.',
+    fases: [
+      ['Primeira medição', 'O carro vai aos rolos para aferir o desempenho real antes de qualquer modificação.'],
+      ['Ajuste em tempo real', 'Acertos de ECU, mecânica e fluxo de gases validados ali mesmo, puxada após puxada.'],
+      ['Comparativo', 'Antes e depois lado a lado: ganhos comprovados e curva de torque aprimorada.']] }
+];
+const tabs = document.getElementById('tabs'), panel = document.getElementById('panel');
+function mostrar(i) {
+  [...tabs.children].forEach((b, j) => { b.setAttribute('aria-selected', j === i); b.tabIndex = j === i ? 0 : -1; });
+  const s = servicos[i];
+  panel.innerHTML = `<span class="mono"><b>${String(i + 1).padStart(2, '0')}</b> / ${s.tag}</span><p>${s.resumo}</p>
+    <ol class="phases">${s.fases.map((f, k) => `<li><span class="mono"><b>Fase 0${k + 1}</b></span><h3>${f[0]}</h3><p>${f[1]}</p></li>`).join('')}</ol>`;
+}
+servicos.forEach((s, i) => {
+  const b = document.createElement('button');
+  b.setAttribute('role', 'tab');
+  b.innerHTML = `${s.nome}<small>${s.tag}</small>`;
+  b.onclick = () => mostrar(i);
+  b.onkeydown = e => {
+    const d = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+    if (!d) return;
+    e.preventDefault();
+    const n = (i + d + servicos.length) % servicos.length;
+    mostrar(n); tabs.children[n].focus();
+  };
+  tabs.appendChild(b);
+});
+mostrar(0);
+
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
