@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alvor Lume</title>
+<meta name="description" content="Alvor Lume, grand tourer elétrico: 620 cv, 0 a 100 km/h em 3,4 s e 640 km de autonomia. Configure o seu e agende um test drive.">
+<meta name="theme-color" content="#E4E3DE">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2315171B'/%3E%3Ccircle cx='32' cy='40' r='16' fill='%23F3B585'/%3E%3Crect y='40' width='64' height='24' fill='%2315171B'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,200..600;1,300..400&family=Cormorant+Garamond:ital,wght@0,400..600;1,400..600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#desenho">Pular para o conteúdo</a>
+
+<!-- ================= PALCO: céu, sol, nome e o carro em 3D ================= -->
+<div class="stage" id="stage" aria-hidden="true">
+  <div class="sky">
+    <div class="sky__above"><div class="sun"></div></div>
+  </div>
+  <p class="stage__name" id="stage-name"><span>L</span><span>u</span><span>m</span><span>e</span></p>
+  <canvas id="scene"></canvas>
+  <svg class="stage__fallback" id="fallback" viewBox="-2.9 -1.6 5.8 2.1" preserveAspectRatio="xMidYMax meet"></svg>
+  <p class="clock" id="clock"><span id="clock-time">06:12</span><i id="clock-label">Alvor</i></p>
+</div>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="nav__bar">
+    <a class="nav__logo" href="#topo" aria-label="Alvor, voltar ao início">Alvor</a>
+    <nav class="nav__links" aria-label="Seções do site">
+      <a href="#desenho">Desenho</a>
+      <a href="#desempenho">Desempenho</a>
+      <a href="#interior">Interior</a>
+      <a href="#configurar">Configurar</a>
+      <a href="#ficha">Ficha técnica</a>
+    </nav>
+    <a class="btn btn--line nav__cta" href="#test-drive">Test drive</a>
+    <button class="nav__menu" type="button" id="menu-btn" aria-expanded="false" aria-controls="menu-panel">Menu</button>
+  </div>
+  <div class="nav__panel" id="menu-panel" hidden>
+    <a href="#desenho">Desenho</a>
+    <a href="#desempenho">Desempenho</a>
+    <a href="#interior">Interior</a>
+    <a href="#configurar">Configurar</a>
+    <a href="#ficha">Ficha técnica</a>
+    <a href="#test-drive">Test drive</a>
+  </div>
+</header>
+
+<main id="topo">
+<div class="exp" id="exp">
+
+  <!-- ===== 06h12 · Alvor ===== -->
+  <section class="hero ch" id="hero" data-key="alvor">
+    <div class="wrap hero__in">
+      <div class="hero__copy">
+        <p class="kicker">Alvor Lume · grand tourer elétrico</p>
+        <h1 class="hero__line"><em>Do alvor ao anoitecer,</em> 640&nbsp;km sem parar.</h1>
+        <div class="hero__cta">
+          <a class="btn btn--solid" href="#configurar">Configurar o seu</a>
+          <a class="btn btn--line" href="#test-drive">Agendar test drive</a>
+        </div>
+      </div>
+      <dl class="facts">
+        <div><dt>620<small>cv</small></dt><dd>dois motores, tração integral</dd></div>
+        <div><dt>3,4<small>s</small></dt><dd>de 0 a 100 km/h</dd></div>
+        <div><dt>640<small>km</small></dt><dd>de autonomia (WLTP)</dd></div>
+      </dl>
+    </div>
+    <p class="hero__scroll">Role a página: o dia passa com você <span aria-hidden="true">↓</span></p>
+  </section>
+
+  <!-- ===== 10h · Desenho ===== -->
+  <section class="ch ch--top" id="desenho" data-key="dia">
+    <div class="wrap">
+      <div class="ch__text">
+        <p class="kicker">10h · Desenho</p>
+        <h2>Uma linha só, do farol à lanterna.</h2>
+        <p>O Lume foi desenhado como se desenha uma curva de concreto: de uma vez. O ombro nasce no para-lama, atravessa a porta sem interrupção e fecha na traseira.</p>
+        <dl class="specs">
+          <div><dt>0,21</dt><dd>coeficiente de arrasto (Cx)</dd></div>
+          <div><dt>4.920 mm</dt><dd>de comprimento</dd></div>
+          <div><dt>3.060 mm</dt><dd>de entre-eixos</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 16h · Desempenho ===== -->
+  <section class="ch ch--left" id="desempenho" data-key="tarde">
+    <div class="wrap">
+      <div class="ch__text">
+        <p class="kicker">16h · Desempenho</p>
+        <h2>620 cv que chegam sem barulho.</h2>
+        <p>Dois motores, tração integral e o torque inteiro desde a primeira volta da roda. A resposta é imediata, e o silêncio continua lá.</p>
+        <dl class="specs">
+          <div><dt>850 Nm</dt><dd>de torque</dd></div>
+          <div><dt>250 km/h</dt><dd>de velocidade máxima</dd></div>
+          <div><dt>18 min</dt><dd>de 10% a 80% em recarga rápida</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 18h47 · Interior ===== -->
+  <section class="ch ch--right ch--dark" id="interior" data-key="poente">
+    <div class="wrap">
+      <div class="ch__text">
+        <p class="kicker">18h47 · Interior</p>
+        <h2>A luz do fim da tarde entra inteira.</h2>
+        <p>Um arco de vidro contínuo cobre a cabine do capô à traseira. Por dentro, quatro materiais e nenhum plástico à vista.</p>
+        <ul class="swatches">
+          <li style="--m:#9C6B43"><span></span>Couro caramelo, curtido sem cromo</li>
+          <li style="--m:#6E4B2F"><span></span>Freijó de manejo certificado</li>
+          <li style="--m:#D9D2C2"><span></span>Linho cru nos painéis</li>
+          <li style="--m:#B59A6A"><span></span>Latão escovado nos comandos</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 22h · Assinatura de luz ===== -->
+  <section class="ch ch--left ch--dark" id="luz" data-key="noite">
+    <div class="wrap">
+      <div class="ch__text">
+        <p class="kicker">22h · Assinatura de luz</p>
+        <h2>À noite, ele assina.</h2>
+        <p>Uma lâmina de luz contorna a frente de para-lama a para-lama e acende do centro para fora quando você chega perto. Atrás, o mesmo gesto em vermelho.</p>
+        <button class="btn btn--line" type="button" id="relight">Acender de novo</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Configurador ===== -->
+  <section class="config" id="configurar" data-key="estudio">
+    <div class="wrap config__in">
+      <div class="config__panel">
+        <p class="kicker">Configurador</p>
+        <h2>Monte o seu Lume.</h2>
+
+        <fieldset class="opt">
+          <legend>Pintura <output id="paint-name">Atlântico</output></legend>
+          <div class="chips" id="paints" role="radiogroup" aria-label="Cor da pintura"></div>
+        </fieldset>
+
+        <fieldset class="opt">
+          <legend>Rodas <output id="wheel-name">Turbina 21"</output></legend>
+          <div class="seg" id="wheels"></div>
+        </fieldset>
+
+        <div class="config__sum">
+          <p class="config__price"><small>A partir de</small><b id="price">R$ 890.000</b></p>
+          <a class="btn btn--solid" href="#test-drive" id="config-cta">Dirigir esta configuração</a>
+        </div>
+      </div>
+      <p class="config__hint" id="orbit-hint"><span aria-hidden="true">↔</span> Arraste para girar o carro</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- ================= FICHA TÉCNICA ================= -->
+<section class="sheet sec" id="ficha">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="kicker">Ficha técnica</p>
+      <h2>Os números, na escala certa.</h2>
+    </header>
+
+    <figure class="plan" id="plan">
+      <svg id="plan-svg" role="img" aria-label="Vista lateral do Alvor Lume com cotas: 4.920 mm de comprimento, 3.060 mm de entre-eixos e 1.325 mm de altura"></svg>
+    </figure>
+
+    <dl class="table">
+      <div><dt>Motorização</dt><dd>Dois motores elétricos, tração integral</dd></div>
+      <div><dt>Potência</dt><dd>456 kW (620 cv)</dd></div>
+      <div><dt>Torque</dt><dd>850 Nm</dd></div>
+      <div><dt>0 a 100 km/h</dt><dd>3,4 s</dd></div>
+      <div><dt>Velocidade máxima</dt><dd>250 km/h, limitada</dd></div>
+      <div><dt>Bateria</dt><dd>105 kWh, arquitetura de 800 V</dd></div>
+      <div><dt>Autonomia</dt><dd>640 km (ciclo WLTP)</dd></div>
+      <div><dt>Recarga rápida</dt><dd>Até 270 kW, de 10% a 80% em 18 min</dd></div>
+      <div><dt>Comprimento · largura · altura</dt><dd>4.920 · 2.000 · 1.325 mm</dd></div>
+      <div><dt>Entre-eixos</dt><dd>3.060 mm</dd></div>
+      <div><dt>Peso em ordem de marcha</dt><dd>2.290 kg</dd></div>
+      <div><dt>Porta-malas</dt><dd>420 L atrás, 60 L na frente</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ================= TEST DRIVE ================= -->
+<section class="drive sec" id="test-drive">
+  <div class="wrap drive__grid">
+    <div class="drive__intro">
+      <p class="kicker">Test drive</p>
+      <h2>Dirija antes de decidir.</h2>
+      <p>Levamos o Lume até você, com a configuração que você montou. São 40 minutos de estrada, sem roteiro e sem vendedor no banco do lado.</p>
+    </div>
+
+    <form class="form" id="drive-form" novalidate>
+      <div class="field">
+        <label for="f-nome">Seu nome</label>
+        <input type="text" id="f-nome" name="nome" autocomplete="name" placeholder="Como devemos chamar você">
+      </div>
+      <div class="field">
+        <label for="f-cidade">Cidade</label>
+        <input type="text" id="f-cidade" name="cidade" autocomplete="address-level2" placeholder="Onde você quer dirigir">
+      </div>
+      <div class="field field--full">
+        <label for="f-quando">Quando</label>
+        <select id="f-quando" name="quando">
+          <option>Nas próximas duas semanas</option>
+          <option>Neste mês</option>
+          <option>Sem pressa, quero conhecer primeiro</option>
+        </select>
+      </div>
+
+      <div class="msg field--full">
+        <p class="kicker">Seu pedido</p>
+        <p class="msg__text" id="msg" tabindex="0"></p>
+        <div class="msg__actions">
+          <a class="btn btn--solid" id="msg-send" href="#test-drive" target="_blank" rel="noopener" hidden>Enviar pelo WhatsApp</a>
+          <button class="btn btn--solid" type="button" id="msg-copy">Copiar pedido</button>
+          <p class="msg__status" id="msg-status" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p class="foot__logo">Alvor</p>
+    <nav aria-label="Rodapé">
+      <a href="#desenho">Desenho</a>
+      <a href="#desempenho">Desempenho</a>
+      <a href="#interior">Interior</a>
+      <a href="#configurar">Configurar</a>
+      <a href="#ficha">Ficha técnica</a>
+    </nav>
+    <p class="foot__note">Carro-conceito. Marca, modelo, preços e números desta página são demonstrativos.</p>
+  </div>
+</footer>
+
+<script src="js/vendor/three.min.js"></script>
+<script src="js/car.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
