@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Alvor Lume</title>
-<meta name="description" content="Alvor Lume, grand tourer elétrico: 620 cv, 0 a 100 km/h em 3,4 s e 640 km de autonomia. Configure o seu e agende um test drive.">
+<title>Alvor Motors</title>
+<meta name="description" content="Alvor Motors, loja independente de Porsche: 911, Cayenne, Panamera e Taycan com procedência conferida. Veja o destaque em 3D e o catálogo completo.">
 <meta name="theme-color" content="#E4E3DE">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2315171B'/%3E%3Ccircle cx='32' cy='40' r='16' fill='%23F3B585'/%3E%3Crect y='40' width='64' height='24' fill='%2315171B'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,40 +14,38 @@
 </head>
 <body>
 
-<a class="skip" href="#desenho">Pular para o conteúdo</a>
+<a class="skip" href="#catalogo">Pular para o catálogo</a>
 
-<!-- ================= PALCO: céu, sol, nome e o carro em 3D ================= -->
+<!-- ================= PALCO: céu, sol, número e o carro em 3D ================= -->
 <div class="stage" id="stage" aria-hidden="true">
   <div class="sky">
     <div class="sky__above"><div class="sun"></div></div>
   </div>
-  <p class="stage__name" id="stage-name"><span>L</span><span>u</span><span>m</span><span>e</span></p>
+  <p class="stage__name" id="stage-name"><span>9</span><span>1</span><span>1</span></p>
   <canvas id="scene"></canvas>
-  <svg class="stage__fallback" id="fallback" viewBox="-2.9 -1.6 5.8 2.1" preserveAspectRatio="xMidYMax meet"></svg>
+  <div class="stage__fallback" id="fallback"></div>
   <p class="clock" id="clock"><span id="clock-time">06:12</span><i id="clock-label">Alvor</i></p>
 </div>
 
 <!-- ================= NAV ================= -->
 <header class="nav" id="nav">
   <div class="nav__bar">
-    <a class="nav__logo" href="#topo" aria-label="Alvor, voltar ao início">Alvor</a>
+    <a class="nav__logo" href="#topo" aria-label="Alvor Motors, voltar ao início">Alvor <span>Motors</span></a>
     <nav class="nav__links" aria-label="Seções do site">
-      <a href="#desenho">Desenho</a>
-      <a href="#desempenho">Desempenho</a>
-      <a href="#interior">Interior</a>
-      <a href="#configurar">Configurar</a>
-      <a href="#ficha">Ficha técnica</a>
+      <a href="#desenho">Destaque</a>
+      <a href="#showroom">Showroom 3D</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#procedencia">Procedência</a>
     </nav>
-    <a class="btn btn--line nav__cta" href="#test-drive">Test drive</a>
+    <a class="btn btn--line nav__cta" href="#visita">Agendar visita</a>
     <button class="nav__menu" type="button" id="menu-btn" aria-expanded="false" aria-controls="menu-panel">Menu</button>
   </div>
   <div class="nav__panel" id="menu-panel" hidden>
-    <a href="#desenho">Desenho</a>
-    <a href="#desempenho">Desempenho</a>
-    <a href="#interior">Interior</a>
-    <a href="#configurar">Configurar</a>
-    <a href="#ficha">Ficha técnica</a>
-    <a href="#test-drive">Test drive</a>
+    <a href="#desenho">Destaque</a>
+    <a href="#showroom">Showroom 3D</a>
+    <a href="#catalogo">Catálogo</a>
+    <a href="#procedencia">Procedência</a>
+    <a href="#visita">Agendar visita</a>
   </div>
 </header>
 
@@ -58,20 +56,20 @@
   <section class="hero ch" id="hero" data-key="alvor">
     <div class="wrap hero__in">
       <div class="hero__copy">
-        <p class="kicker">Alvor Lume · grand tourer elétrico</p>
-        <h1 class="hero__line"><em>Do alvor ao anoitecer,</em> 640&nbsp;km sem parar.</h1>
+        <p class="kicker">Alvor Motors · loja independente de Porsche</p>
+        <h1 class="hero__line"><em>Destaque do salão:</em> 911 Carrera 2022, azul-escuro, 14.800&nbsp;km.</h1>
         <div class="hero__cta">
-          <a class="btn btn--solid" href="#configurar">Configurar o seu</a>
-          <a class="btn btn--line" href="#test-drive">Agendar test drive</a>
+          <a class="btn btn--solid" href="#catalogo">Ver o catálogo</a>
+          <a class="btn btn--line" href="#visita" data-interest="911-carrera">Tenho interesse neste</a>
         </div>
       </div>
       <dl class="facts">
-        <div><dt>620<small>cv</small></dt><dd>dois motores, tração integral</dd></div>
-        <div><dt>3,4<small>s</small></dt><dd>de 0 a 100 km/h</dd></div>
-        <div><dt>640<small>km</small></dt><dd>de autonomia (WLTP)</dd></div>
+        <div><dt>385<small>cv</small></dt><dd>seis cilindros boxer biturbo</dd></div>
+        <div><dt>4,2<small>s</small></dt><dd>de 0 a 100 km/h</dd></div>
+        <div><dt>293<small>km/h</small></dt><dd>de velocidade máxima</dd></div>
       </dl>
     </div>
-    <p class="hero__scroll">Role a página: o dia passa com você <span aria-hidden="true">↓</span></p>
+    <p class="hero__scroll">Role para ver o carro de perto <span aria-hidden="true">↓</span></p>
   </section>
 
   <!-- ===== 10h · Desenho ===== -->
@@ -79,12 +77,12 @@
     <div class="wrap">
       <div class="ch__text">
         <p class="kicker">10h · Desenho</p>
-        <h2>Uma linha só, do farol à lanterna.</h2>
-        <p>O Lume foi desenhado como se desenha uma curva de concreto: de uma vez. O ombro nasce no para-lama, atravessa a porta sem interrupção e fecha na traseira.</p>
+        <h2>A mesma linha desde 1963.</h2>
+        <p>O teto desce inteiro até a traseira, os para-lamas ficam mais altos que o capô e os faróis continuam redondos. Sessenta anos depois, ainda dá para reconhecer de longe.</p>
         <dl class="specs">
-          <div><dt>0,21</dt><dd>coeficiente de arrasto (Cx)</dd></div>
-          <div><dt>4.920 mm</dt><dd>de comprimento</dd></div>
-          <div><dt>3.060 mm</dt><dd>de entre-eixos</dd></div>
+          <div><dt>4.519 mm</dt><dd>de comprimento</dd></div>
+          <div><dt>2.450 mm</dt><dd>de entre-eixos</dd></div>
+          <div><dt>1.298 mm</dt><dd>de altura</dd></div>
         </dl>
       </div>
     </div>
@@ -95,29 +93,29 @@
     <div class="wrap">
       <div class="ch__text">
         <p class="kicker">16h · Desempenho</p>
-        <h2>620 cv que chegam sem barulho.</h2>
-        <p>Dois motores, tração integral e o torque inteiro desde a primeira volta da roda. A resposta é imediata, e o silêncio continua lá.</p>
+        <h2>385 cv atrás do eixo traseiro.</h2>
+        <p>O seis-cilindros boxer biturbo de 3 litros fica onde sempre ficou: lá atrás. É o que dá ao 911 a tração na saída de curva e o jeito só dele de andar.</p>
         <dl class="specs">
-          <div><dt>850 Nm</dt><dd>de torque</dd></div>
-          <div><dt>250 km/h</dt><dd>de velocidade máxima</dd></div>
-          <div><dt>18 min</dt><dd>de 10% a 80% em recarga rápida</dd></div>
+          <div><dt>450 Nm</dt><dd>de torque</dd></div>
+          <div><dt>4,2 s</dt><dd>de 0 a 100 km/h</dd></div>
+          <div><dt>293 km/h</dt><dd>de velocidade máxima</dd></div>
         </dl>
       </div>
     </div>
   </section>
 
-  <!-- ===== 18h47 · Interior ===== -->
-  <section class="ch ch--right ch--dark" id="interior" data-key="poente">
+  <!-- ===== 18h47 · Procedência ===== -->
+  <section class="ch ch--right ch--dark" id="procedencia" data-key="poente">
     <div class="wrap">
       <div class="ch__text">
-        <p class="kicker">18h47 · Interior</p>
-        <h2>A luz do fim da tarde entra inteira.</h2>
-        <p>Um arco de vidro contínuo cobre a cabine do capô à traseira. Por dentro, quatro materiais e nenhum plástico à vista.</p>
-        <ul class="swatches">
-          <li style="--m:#9C6B43"><span></span>Couro caramelo, curtido sem cromo</li>
-          <li style="--m:#6E4B2F"><span></span>Freijó de manejo certificado</li>
-          <li style="--m:#D9D2C2"><span></span>Linho cru nos painéis</li>
-          <li style="--m:#B59A6A"><span></span>Latão escovado nos comandos</li>
+        <p class="kicker">18h47 · Procedência</p>
+        <h2>Só entra no salão com a história conferida.</h2>
+        <p>Antes de anunciar, a gente levanta a vida inteira do carro. O que não fecha, não entra.</p>
+        <ul class="checks">
+          <li>Laudo cautelar aprovado, com a pintura medida painel a painel</li>
+          <li>Histórico de revisões conferido nota por nota</li>
+          <li>Chave reserva, manual e nota fiscal de origem</li>
+          <li>Garantia de 12 meses para motor e câmbio</li>
         </ul>
       </div>
     </div>
@@ -128,102 +126,93 @@
     <div class="wrap">
       <div class="ch__text">
         <p class="kicker">22h · Assinatura de luz</p>
-        <h2>À noite, ele assina.</h2>
-        <p>Uma lâmina de luz contorna a frente de para-lama a para-lama e acende do centro para fora quando você chega perto. Atrás, o mesmo gesto em vermelho.</p>
+        <h2>Quatro pontos de luz.</h2>
+        <p>A assinatura dos faróis são quatro pontos de LED de cada lado. Atrás, uma barra contínua atravessa a traseira de ponta a ponta.</p>
         <button class="btn btn--line" type="button" id="relight">Acender de novo</button>
       </div>
     </div>
   </section>
 
-  <!-- ===== Configurador ===== -->
-  <section class="config" id="configurar" data-key="estudio">
-    <div class="wrap config__in">
-      <div class="config__panel">
-        <p class="kicker">Configurador</p>
-        <h2>Monte o seu Lume.</h2>
+  <!-- ===== Showroom 3D ===== -->
+  <section class="show" id="showroom" data-key="estudio">
+    <div class="wrap show__in">
+      <p class="show__hint" id="orbit-hint"><span aria-hidden="true">↔</span> Arraste para girar o carro</p>
 
-        <fieldset class="opt">
-          <legend>Pintura <output id="paint-name">Atlântico</output></legend>
-          <div class="chips" id="paints" role="radiogroup" aria-label="Cor da pintura"></div>
-        </fieldset>
-
-        <fieldset class="opt">
-          <legend>Rodas <output id="wheel-name">Turbina 21"</output></legend>
-          <div class="seg" id="wheels"></div>
-        </fieldset>
-
-        <div class="config__sum">
-          <p class="config__price"><small>A partir de</small><b id="price">R$ 890.000</b></p>
-          <a class="btn btn--solid" href="#test-drive" id="config-cta">Dirigir esta configuração</a>
+      <div class="show__panel" id="panel" aria-live="polite">
+        <div class="show__head">
+          <p class="kicker">Showroom 3D</p>
+          <div class="show__nav">
+            <button type="button" id="prev" aria-label="Carro anterior">‹</button>
+            <span id="counter">1 / 8</span>
+            <button type="button" id="next" aria-label="Próximo carro">›</button>
+          </div>
+        </div>
+        <h2 id="car-name">911 Carrera</h2>
+        <p class="show__meta" id="car-meta">2022 · 14.800 km · Prata</p>
+        <dl class="show__specs" id="car-specs"></dl>
+        <div class="show__sum">
+          <p class="show__price"><small>Valor</small><b id="price">R$ 895.000</b></p>
+          <a class="btn btn--solid" href="#visita" id="interest">Tenho interesse</a>
         </div>
       </div>
-      <p class="config__hint" id="orbit-hint"><span aria-hidden="true">↔</span> Arraste para girar o carro</p>
+
+      <div class="strip" id="strip" role="listbox" aria-label="Carros do catálogo"></div>
     </div>
   </section>
 
 </div>
 
-<!-- ================= FICHA TÉCNICA ================= -->
-<section class="sheet sec" id="ficha">
+<!-- ================= CATÁLOGO ================= -->
+<section class="cat sec" id="catalogo">
   <div class="wrap">
-    <header class="sec-head">
-      <p class="kicker">Ficha técnica</p>
-      <h2>Os números, na escala certa.</h2>
+    <header class="sec-head sec-head--row">
+      <div>
+        <p class="kicker">Catálogo</p>
+        <h2><span id="cat-count">Oito</span> carros no salão hoje.</h2>
+      </div>
+      <div class="filters" id="filters" role="group" aria-label="Filtrar o catálogo"></div>
     </header>
-
-    <figure class="plan" id="plan">
-      <svg id="plan-svg" role="img" aria-label="Vista lateral do Alvor Lume com cotas: 4.920 mm de comprimento, 3.060 mm de entre-eixos e 1.325 mm de altura"></svg>
-    </figure>
-
-    <dl class="table">
-      <div><dt>Motorização</dt><dd>Dois motores elétricos, tração integral</dd></div>
-      <div><dt>Potência</dt><dd>456 kW (620 cv)</dd></div>
-      <div><dt>Torque</dt><dd>850 Nm</dd></div>
-      <div><dt>0 a 100 km/h</dt><dd>3,4 s</dd></div>
-      <div><dt>Velocidade máxima</dt><dd>250 km/h, limitada</dd></div>
-      <div><dt>Bateria</dt><dd>105 kWh, arquitetura de 800 V</dd></div>
-      <div><dt>Autonomia</dt><dd>640 km (ciclo WLTP)</dd></div>
-      <div><dt>Recarga rápida</dt><dd>Até 270 kW, de 10% a 80% em 18 min</dd></div>
-      <div><dt>Comprimento · largura · altura</dt><dd>4.920 · 2.000 · 1.325 mm</dd></div>
-      <div><dt>Entre-eixos</dt><dd>3.060 mm</dd></div>
-      <div><dt>Peso em ordem de marcha</dt><dd>2.290 kg</dd></div>
-      <div><dt>Porta-malas</dt><dd>420 L atrás, 60 L na frente</dd></div>
-    </dl>
+    <div class="grid" id="grid"></div>
+    <p class="cat__note">Ficha de catálogo do fabricante para cada versão. O estado, os opcionais e a quilometragem de cada carro são conferidos na visita.</p>
   </div>
 </section>
 
-<!-- ================= TEST DRIVE ================= -->
-<section class="drive sec" id="test-drive">
+<!-- ================= VISITA ================= -->
+<section class="drive sec" id="visita">
   <div class="wrap drive__grid">
     <div class="drive__intro">
-      <p class="kicker">Test drive</p>
-      <h2>Dirija antes de decidir.</h2>
-      <p>Levamos o Lume até você, com a configuração que você montou. São 40 minutos de estrada, sem roteiro e sem vendedor no banco do lado.</p>
+      <p class="kicker">Visita</p>
+      <h2>Venha ver de perto.</h2>
+      <p>O carro fica separado para você no dia e na hora combinados, com o laudo e o histórico em cima da mesa. Se quiser, a gente avalia o seu na troca.</p>
     </div>
 
-    <form class="form" id="drive-form" novalidate>
+    <form class="form" id="visit-form" novalidate>
       <div class="field">
         <label for="f-nome">Seu nome</label>
         <input type="text" id="f-nome" name="nome" autocomplete="name" placeholder="Como devemos chamar você">
       </div>
       <div class="field">
-        <label for="f-cidade">Cidade</label>
-        <input type="text" id="f-cidade" name="cidade" autocomplete="address-level2" placeholder="Onde você quer dirigir">
-      </div>
-      <div class="field field--full">
         <label for="f-quando">Quando</label>
         <select id="f-quando" name="quando">
+          <option>Nesta semana</option>
           <option>Nas próximas duas semanas</option>
-          <option>Neste mês</option>
-          <option>Sem pressa, quero conhecer primeiro</option>
+          <option>Sem pressa, estou pesquisando</option>
         </select>
+      </div>
+      <div class="field field--full">
+        <label for="f-carro">Carro de interesse</label>
+        <select id="f-carro" name="carro"></select>
+      </div>
+      <div class="field field--full field--check">
+        <input type="checkbox" id="f-troca" name="troca">
+        <label for="f-troca">Tenho um carro para avaliar na troca</label>
       </div>
 
       <div class="msg field--full">
         <p class="kicker">Seu pedido</p>
         <p class="msg__text" id="msg" tabindex="0"></p>
         <div class="msg__actions">
-          <a class="btn btn--solid" id="msg-send" href="#test-drive" target="_blank" rel="noopener" hidden>Enviar pelo WhatsApp</a>
+          <a class="btn btn--solid" id="msg-send" href="#visita" target="_blank" rel="noopener" hidden>Enviar pelo WhatsApp</a>
           <button class="btn btn--solid" type="button" id="msg-copy">Copiar pedido</button>
           <p class="msg__status" id="msg-status" role="status" aria-live="polite"></p>
         </div>
@@ -236,15 +225,14 @@
 
 <footer class="foot">
   <div class="wrap foot__in">
-    <p class="foot__logo">Alvor</p>
+    <p class="foot__logo">Alvor Motors</p>
     <nav aria-label="Rodapé">
-      <a href="#desenho">Desenho</a>
-      <a href="#desempenho">Desempenho</a>
-      <a href="#interior">Interior</a>
-      <a href="#configurar">Configurar</a>
-      <a href="#ficha">Ficha técnica</a>
+      <a href="#desenho">Destaque</a>
+      <a href="#showroom">Showroom 3D</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#visita">Visita</a>
     </nav>
-    <p class="foot__note">Carro-conceito. Marca, modelo, preços e números desta página são demonstrativos.</p>
+    <p class="foot__note">Loja e estoque fictícios, para demonstração: preços e quilometragens são exemplos. A Alvor Motors é independente e não tem vínculo com a Porsche. Porsche, 911, Cayenne, Panamera e Taycan são marcas da Dr. Ing. h.c. F. Porsche AG. Os carros em 3D são ilustrações estilizadas, não reproduções exatas.</p>
   </div>
 </footer>
 
