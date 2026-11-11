@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VULKA Suplementos</title>
+<meta name="description" content="Whey Protein Isolado com 25 g de proteína por dose, creatina, pré-treino e mais. Fórmula aberta, sem blend escondido.">
+<meta name="theme-color" content="#121310">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23121310' d='M0 0h52l12 12v52H12L0 52z'/%3E%3Cpath fill='%23F6CE46' d='M12 16h12l8 22 8-22h12L38 50H26z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,100..900&family=Instrument+Sans:wght@400..700&family=Martian+Mono:wght@300..700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#formula">Pular para o conteúdo</a>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="nav__bar">
+    <a class="nav__logo" href="#topo" aria-label="VULKA, voltar ao início">VULKA</a>
+    <nav class="nav__links" aria-label="Seções do site">
+      <a href="#formula">Fórmula</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#calculadora">Calculadora</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <button class="nav__menu" type="button" id="menu-btn" aria-expanded="false" aria-controls="menu-panel">Menu</button>
+    <button class="nav__cart" type="button" id="cart-open" aria-label="Abrir carrinho">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 8h14l-1.2 11.5H6.2L5 8zm4 0V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      <span class="nav__count" id="cart-count">0</span>
+    </button>
+    <span class="nav__progress" id="nav-progress" aria-hidden="true"></span>
+  </div>
+  <div class="nav__panel" id="menu-panel" hidden>
+    <a href="#formula">Fórmula</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#calculadora">Calculadora</a>
+    <a href="#duvidas">Dúvidas</a>
+  </div>
+</header>
+
+<main id="topo">
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero">
+  <div class="hero__wipe" id="hero-wipe" aria-hidden="true"></div>
+  <canvas class="hero__dust" id="dust" aria-hidden="true"></canvas>
+
+  <div class="wrap hero__grid">
+    <div class="hero__top">
+      <p class="eyebrow"><i class="eyebrow__dot"></i><span>Whey Protein Isolado · 900 g<em> · 30 doses</em></span></p>
+      <p class="eyebrow hero__scroll">Role para ver por dentro <span aria-hidden="true">↓</span></p>
+    </div>
+
+    <h1 class="hero__word" id="hero-word" aria-label="Cresça">
+      <span aria-hidden="true">C</span><span aria-hidden="true">R</span><span aria-hidden="true">E</span><span aria-hidden="true">S</span><span aria-hidden="true">Ç</span><span aria-hidden="true">A</span>
+    </h1>
+
+    <div class="hero__stage" id="hero-stage">
+      <canvas class="tub" id="tub-hero" role="img" aria-label="Pote de Whey Isolado VULKA. Arraste para girar."></canvas>
+
+      <div class="chip chip--a" aria-hidden="true">
+        <b>25<small>g</small></b>
+        <span>proteína<br>por dose</span>
+      </div>
+      <div class="chip chip--b" aria-hidden="true">
+        <b>0<small>g</small></b>
+        <span>açúcar<br>adicionado</span>
+      </div>
+
+      <svg class="seal" viewBox="0 0 120 120" aria-hidden="true">
+        <defs><path id="seal-path" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0"/></defs>
+        <circle cx="60" cy="60" r="59" class="seal__bg"/>
+        <g class="seal__spin"><text class="seal__txt"><textPath href="#seal-path" textLength="276">FÓRMULA ABERTA · SEM BLEND ESCONDIDO ·</textPath></text></g>
+        <path class="seal__v" d="M44 47h9l7 19 7-19h9L65 77H55z"/>
+      </svg>
+
+      <p class="hero__hint" id="hero-hint"><span aria-hidden="true">↻</span> arraste para girar</p>
+    </div>
+
+    <div class="hero__copy">
+      <p class="hero__lead">25 g de proteína por dose, 5,6 g de BCAA e zero açúcar adicionado. Fórmula aberta, sem blend escondido.</p>
+      <div class="hero__cta">
+        <button class="btn btn--ink magnetic" type="button" data-add="iso"><span class="btn__in">Adicionar ao carrinho</span></button>
+        <a class="btn btn--line" href="#formula"><span class="btn__in">Ver a fórmula</span></a>
+      </div>
+    </div>
+
+    <div class="hero__pick">
+      <p class="label">Sabor</p>
+      <p class="hero__flavor" id="flavor-name" aria-live="polite">Baunilha</p>
+      <div class="swatches" id="swatches" role="radiogroup" aria-label="Escolha o sabor">
+        <button type="button" role="radio" aria-checked="true"  data-flavor="baunilha"  style="--c:#F6CE46"><span class="sr">Baunilha</span></button>
+        <button type="button" role="radio" aria-checked="false" data-flavor="chocolate" style="--c:#7C4A2D"><span class="sr">Chocolate</span></button>
+        <button type="button" role="radio" aria-checked="false" data-flavor="morango"   style="--c:#FF6078"><span class="sr">Morango</span></button>
+        <button type="button" role="radio" aria-checked="false" data-flavor="doce"      style="--c:#EDA24A"><span class="sr">Doce de leite</span></button>
+        <button type="button" role="radio" aria-checked="false" data-flavor="pistache"  style="--c:#B4D468"><span class="sr">Pistache</span></button>
+      </div>
+      <p class="hero__price"><b>R$ 189,90</b><span>R$ 6,33 por dose</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track" id="marquee">
+    <span>Proteína isolada</span><i></i><span>Zero açúcar adicionado</span><i></i><span>Fórmula aberta</span><i></i><span>Mistura em 10 segundos</span><i></i><span>5,6 g de BCAA</span><i></i>
+  </div>
+</div>
+
+<!-- ================= DOSE (anilhas) ================= -->
+<section class="dose sec" id="dose">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow"><i class="eyebrow__dot"></i>Por dose de 30 g</p>
+      <h2 class="kinetic"><span class="line">O que vai</span><span class="line">na sua dose</span></h2>
+    </header>
+
+    <ul class="plates" id="plates">
+      <li class="plate" style="--k:1">
+        <div class="plate__slot"><div class="plate__disc">
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <defs><path id="pl-1" d="M100,100 m-82,0 a82,82 0 1,1 164,0 a82,82 0 1,1 -164,0"/></defs>
+            <circle cx="100" cy="100" r="99.5" class="plate__rubber"/>
+            <circle cx="100" cy="100" r="92" class="plate__groove"/>
+            <circle cx="100" cy="100" r="68" class="plate__ring"/>
+            <text class="plate__txt"><textPath href="#pl-1" textLength="508">VULKA · WHEY ISOLADO · VULKA · WHEY ISOLADO ·</textPath></text>
+            <text x="100" y="118" text-anchor="middle" class="plate__num">25</text>
+            <text x="100" y="140" text-anchor="middle" class="plate__unit">GRAMAS</text>
+          </svg>
+        </div></div>
+        <p class="plate__cap"><b>25 g de proteína</b>83% de cada dosador é proteína isolada do soro do leite.</p>
+      </li>
+      <li class="plate" style="--k:.86">
+        <div class="plate__slot"><div class="plate__disc">
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <defs><path id="pl-2" d="M100,100 m-82,0 a82,82 0 1,1 164,0 a82,82 0 1,1 -164,0"/></defs>
+            <circle cx="100" cy="100" r="99.5" class="plate__rubber"/>
+            <circle cx="100" cy="100" r="92" class="plate__groove"/>
+            <circle cx="100" cy="100" r="68" class="plate__ring"/>
+            <text class="plate__txt"><textPath href="#pl-2" textLength="508">LEUCINA · ISOLEUCINA · VALINA · LEUCINA · VALINA ·</textPath></text>
+            <text x="100" y="118" text-anchor="middle" class="plate__num">5,6</text>
+            <text x="100" y="140" text-anchor="middle" class="plate__unit">GRAMAS</text>
+          </svg>
+        </div></div>
+        <p class="plate__cap"><b>5,6 g de BCAA</b>Com 2,7 g de leucina, o aminoácido que dispara a síntese muscular.</p>
+      </li>
+      <li class="plate" style="--k:.74">
+        <div class="plate__slot"><div class="plate__disc">
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <defs><path id="pl-3" d="M100,100 m-82,0 a82,82 0 1,1 164,0 a82,82 0 1,1 -164,0"/></defs>
+            <circle cx="100" cy="100" r="99.5" class="plate__rubber"/>
+            <circle cx="100" cy="100" r="92" class="plate__groove"/>
+            <circle cx="100" cy="100" r="68" class="plate__ring"/>
+            <text class="plate__txt"><textPath href="#pl-3" textLength="508">SEM AÇÚCAR ADICIONADO · SEM MALTODEXTRINA ·</textPath></text>
+            <text x="100" y="118" text-anchor="middle" class="plate__num">0</text>
+            <text x="100" y="140" text-anchor="middle" class="plate__unit">GRAMAS</text>
+          </svg>
+        </div></div>
+        <p class="plate__cap"><b>0 g de açúcar adicionado</b>Adoçado com sucralose. Nada de maltodextrina para fazer volume.</p>
+      </li>
+      <li class="plate" style="--k:.64">
+        <div class="plate__slot"><div class="plate__disc">
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <defs><path id="pl-4" d="M100,100 m-82,0 a82,82 0 1,1 164,0 a82,82 0 1,1 -164,0"/></defs>
+            <circle cx="100" cy="100" r="99.5" class="plate__rubber"/>
+            <circle cx="100" cy="100" r="92" class="plate__groove"/>
+            <circle cx="100" cy="100" r="68" class="plate__ring"/>
+            <text class="plate__txt"><textPath href="#pl-4" textLength="508">LEVE · POUCA CALORIA · LEVE · POUCA CALORIA ·</textPath></text>
+            <text x="100" y="118" text-anchor="middle" class="plate__num">109</text>
+            <text x="100" y="140" text-anchor="middle" class="plate__unit">KCAL</text>
+          </svg>
+        </div></div>
+        <p class="plate__cap"><b>109 kcal</b>Proteína alta com pouca caloria: cabe em dieta de ganho ou de definição.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= STORY (pote fixo girando) ================= -->
+<section class="story" id="story">
+  <div class="story__sticky">
+    <div class="wrap story__grid">
+      <div class="story__stage">
+        <div class="story__disc" id="story-disc" aria-hidden="true"></div>
+        <canvas class="tub" id="tub-story" role="img" aria-label="Pote de Whey Isolado girando para mostrar o rótulo"></canvas>
+      </div>
+
+      <div class="story__steps" id="story-steps">
+        <article class="step is-active">
+          <p class="eyebrow"><i class="eyebrow__dot"></i>Pureza</p>
+          <h3>Isolado de verdade.</h3>
+          <p>Cada dose de 30 g entrega 25 g de proteína. Sem maltodextrina, sem aminoácido barato inflando o número do rótulo.</p>
+          <p class="step__fact"><b>83%</b><span>de proteína<br>em cada grama</span></p>
+        </article>
+        <article class="step">
+          <p class="eyebrow"><i class="eyebrow__dot"></i>Transparência</p>
+          <h3>Rótulo sem segredo.</h3>
+          <p>Nada de blend proprietário. A tabela mostra quanto tem de cada coisa, por dose e por 100 g, do jeito que a Anvisa pede.</p>
+          <p class="step__fact"><b>10</b><span>aminoácidos<br>declarados</span></p>
+        </article>
+        <article class="step">
+          <p class="eyebrow"><i class="eyebrow__dot"></i>Solubilidade</p>
+          <h3>Mistura em 10 segundos.</h3>
+          <p>Um dosador, 200 ml de água gelada e uma boa agitada. Sem grumo no fundo da coqueteleira.</p>
+          <p class="step__fact"><b>200</b><span>ml de água<br>por dose</span></p>
+        </article>
+      </div>
+
+      <div class="story__rail" aria-hidden="true"><span id="story-fill"></span><i></i><i></i><i></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FÓRMULA ================= -->
+<section class="formula sec" id="formula">
+  <div class="wrap">
+    <header class="sec-head sec-head--split">
+      <div>
+        <p class="eyebrow"><i class="eyebrow__dot"></i>Whey Isolado · Baunilha</p>
+        <h2 class="kinetic"><span class="line">A fórmula,</span><span class="line">aberta.</span></h2>
+      </div>
+      <p class="sec-lead">A tabela inteira, sem asterisco escondido. Os valores são por 100 g e por dose de 30 g, que é um dosador raso.</p>
+    </header>
+
+    <div class="formula__grid">
+      <div class="facts" data-reveal>
+        <p class="facts__title">Informação nutricional</p>
+        <p class="facts__sub">Porções por embalagem: 30 · Porção: 30 g (1 dosador)</p>
+        <div class="facts__scroll">
+          <table>
+            <thead>
+              <tr><th scope="col"><span class="sr">Nutriente</span></th><th scope="col">100 g</th><th scope="col">30 g</th><th scope="col">%VD*</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Valor energético (kcal)</th><td>363</td><td>109</td><td>5</td></tr>
+              <tr><th scope="row">Carboidratos (g)</th><td>3,3</td><td>1,0</td><td>0</td></tr>
+              <tr class="sub"><th scope="row">Açúcares totais (g)</th><td>2,0</td><td>0,6</td><td></td></tr>
+              <tr class="sub"><th scope="row">Açúcares adicionados (g)</th><td>0</td><td>0</td><td>0</td></tr>
+              <tr class="hl"><th scope="row">Proteínas (g)</th><td>83</td><td>25</td><td>50</td></tr>
+              <tr><th scope="row">Gorduras totais (g)</th><td>1,7</td><td>0,5</td><td>1</td></tr>
+              <tr class="sub"><th scope="row">Gorduras saturadas (g)</th><td>1,0</td><td>0,3</td><td>2</td></tr>
+              <tr class="sub"><th scope="row">Gorduras trans (g)</th><td>0</td><td>0</td><td></td></tr>
+              <tr><th scope="row">Fibras alimentares (g)</th><td>0</td><td>0</td><td>0</td></tr>
+              <tr><th scope="row">Sódio (mg)</th><td>200</td><td>60</td><td>3</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="facts__foot">*Percentual de valores diários fornecidos pela porção.</p>
+        <p class="facts__ing"><b>Ingredientes:</b> proteína isolada do soro do leite, aromatizante, espessante goma xantana e edulcorante sucralose. <b>Alérgicos: contém derivados de leite. Não contém glúten.</b></p>
+      </div>
+
+      <div class="formula__side">
+        <div class="purity" data-reveal>
+          <svg class="purity__ring" viewBox="0 0 120 120" aria-hidden="true">
+            <circle cx="60" cy="60" r="50" class="purity__track"/>
+            <circle cx="60" cy="60" r="50" class="purity__val" id="purity-val" pathLength="100"/>
+          </svg>
+          <p class="purity__num"><span data-count="83">83</span>%</p>
+          <p class="purity__txt"><b>de proteína por grama.</b> São 25 g em 30 g de pó. O resto é aroma, um pouco de sódio e quase nada de carboidrato.</p>
+        </div>
+
+        <div class="amino" data-reveal>
+          <div class="amino__head">
+            <h3>Aminograma por dose</h3>
+            <p class="label">BCAA total 5,6 g</p>
+          </div>
+          <ul class="amino__list" id="amino">
+            <li class="is-bcaa"><span>Leucina</span><span class="bar"><i style="--v:.63"></i></span><b>2,7 g</b></li>
+            <li class="is-bcaa"><span>Isoleucina</span><span class="bar"><i style="--v:.35"></i></span><b>1,5 g</b></li>
+            <li class="is-bcaa"><span>Valina</span><span class="bar"><i style="--v:.33"></i></span><b>1,4 g</b></li>
+            <li><span>Ác. glutâmico</span><span class="bar"><i style="--v:1"></i></span><b>4,3 g</b></li>
+            <li><span>Lisina</span><span class="bar"><i style="--v:.56"></i></span><b>2,4 g</b></li>
+            <li><span>Treonina</span><span class="bar"><i style="--v:.40"></i></span><b>1,7 g</b></li>
+            <li><span>Fenilalanina</span><span class="bar"><i style="--v:.19"></i></span><b>0,8 g</b></li>
+            <li><span>Metionina</span><span class="bar"><i style="--v:.12"></i></span><b>0,5 g</b></li>
+            <li><span>Triptofano</span><span class="bar"><i style="--v:.09"></i></span><b>0,4 g</b></li>
+            <li><span>Histidina</span><span class="bar"><i style="--v:.09"></i></span><b>0,4 g</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUTOS ================= -->
+<section class="shop sec" id="produtos">
+  <div class="wrap">
+    <header class="sec-head sec-head--split">
+      <div>
+        <p class="eyebrow"><i class="eyebrow__dot"></i>Linha completa</p>
+        <h2 class="kinetic"><span class="line">Monte</span><span class="line">seu stack</span></h2>
+      </div>
+      <p class="sec-lead">Proteína para construir, creatina para a força, pré-treino para os dias em que o corpo não quer ir. Tudo com a dose escrita na frente do pote.</p>
+    </header>
+    <div class="shop__grid" id="shop-grid"></div>
+  </div>
+</section>
+
+<!-- ================= CALCULADORA ================= -->
+<section class="calc sec" id="calculadora">
+  <div class="wrap calc__grid">
+    <div class="calc__intro">
+      <p class="eyebrow"><i class="eyebrow__dot"></i>Calculadora de proteína</p>
+      <h2 class="kinetic"><span class="line">Quanta</span><span class="line">proteína</span><span class="line">por dia?</span></h2>
+
+      <form class="calc__form" id="calc" novalidate>
+        <div class="field">
+          <label for="peso">Seu peso</label>
+          <output id="peso-out" for="peso">75 kg</output>
+          <input type="range" id="peso" name="peso" min="40" max="140" step="1" value="75">
+        </div>
+        <fieldset class="field">
+          <legend>Seu objetivo</legend>
+          <div class="seg">
+            <input type="radio" name="meta" id="meta-manter" value="manter"><label for="meta-manter">Manter</label>
+            <input type="radio" name="meta" id="meta-ganhar" value="ganhar" checked><label for="meta-ganhar">Ganhar massa</label>
+            <input type="radio" name="meta" id="meta-definir" value="definir"><label for="meta-definir">Definir</label>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+
+    <div class="calc__result" aria-live="polite">
+      <p class="label">Sua faixa diária</p>
+      <p class="calc__num"><span id="calc-min">120</span><i>–</i><span id="calc-max">165</span><small>g</small></p>
+      <div class="calc__scale" aria-hidden="true">
+        <span class="calc__band" id="calc-band"></span>
+        <span class="calc__dose" id="calc-dose"></span>
+      </div>
+      <div class="calc__legend" aria-hidden="true"><span>0 g</span><span>100</span><span>200</span><span>300</span><span>400 g</span></div>
+      <p class="calc__txt" id="calc-txt">De 1,6 a 2,2 g por quilo. Uma dose de Whey Isolado cobre 21% do seu mínimo.</p>
+      <p class="note">Estimativa geral para adultos saudáveis que treinam. Um nutricionista ajusta a conta para o seu caso.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMO TOMAR ================= -->
+<section class="how sec" id="como-tomar">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow"><i class="eyebrow__dot"></i>Modo de preparo</p>
+      <h2 class="kinetic"><span class="line">Como</span><span class="line">tomar</span></h2>
+    </header>
+    <ol class="how__list">
+      <li data-reveal>
+        <div class="how__icon">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M10 26h30v10a15 15 0 0 1-30 0V26z"/><path d="M40 30h16"/><path class="how__powder" d="M13 26c3-7 9-9 12-9s9 2 12 9"/></svg>
+        </div>
+        <span class="how__n">1</span>
+        <h3>Um dosador</h3>
+        <p>30 g de pó, um dosador raso. Ele vem dentro do pote.</p>
+      </li>
+      <li data-reveal style="--d:.12s">
+        <div class="how__icon">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M20 20h24l-3 34H23L20 20z"/><path d="M18 14h28v6H18z"/><path d="M27 8h10v6H27z"/><path class="how__wave" d="M22.5 34c3-2.5 6 2.5 9.5 0s6.5 2.5 9.5 0"/></svg>
+        </div>
+        <span class="how__n">2</span>
+        <h3>200 ml gelados</h3>
+        <p>Água para um shake leve, leite para um mais cremoso.</p>
+      </li>
+      <li data-reveal style="--d:.24s">
+        <div class="how__icon how__icon--shake">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="34" r="20"/><path d="M32 22v12l8 5"/><path d="M26 8h12"/><path d="M32 8v6"/></svg>
+        </div>
+        <span class="how__n">3</span>
+        <h3>10 segundos</h3>
+        <p>Agite na coqueteleira e pronto. Tome depois do treino ou quando faltar proteína na refeição.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= DÚVIDAS ================= -->
+<section class="faq sec" id="duvidas">
+  <div class="wrap faq__grid">
+    <header class="sec-head">
+      <p class="eyebrow"><i class="eyebrow__dot"></i>Antes de comprar</p>
+      <h2 class="kinetic"><span class="line">Dúvidas</span><span class="line">rápidas</span></h2>
+    </header>
+    <div class="faq__list" id="faq">
+      <div class="faq__item is-open">
+        <h3><button type="button" aria-expanded="true" aria-controls="faq-1" id="faq-b1">Qual a diferença entre isolado e concentrado?<i aria-hidden="true"></i></button></h3>
+        <div class="faq__a" id="faq-1" role="region" aria-labelledby="faq-b1"><div><p>O isolado passa por uma filtragem a mais e fica com 83% a 90% de proteína, quase sem carboidrato, gordura e lactose. O concentrado fica entre 70% e 80% e custa menos. Os dois funcionam. O isolado costuma ser a escolha de quem está em dieta apertada ou sente desconforto com lactose.</p></div></div>
+      </div>
+      <div class="faq__item">
+        <h3><button type="button" aria-expanded="false" aria-controls="faq-2" id="faq-b2">Qual o melhor horário para tomar?<i aria-hidden="true"></i></button></h3>
+        <div class="faq__a" id="faq-2" role="region" aria-labelledby="faq-b2"><div><p>O que mais pesa é bater a meta de proteína do dia. Tomar depois do treino é prático e ajuda na recuperação, mas no café da manhã ou no lanche da tarde funciona do mesmo jeito.</p></div></div>
+      </div>
+      <div class="faq__item">
+        <h3><button type="button" aria-expanded="false" aria-controls="faq-3" id="faq-b3">Whey engorda?<i aria-hidden="true"></i></button></h3>
+        <div class="faq__a" id="faq-3" role="region" aria-labelledby="faq-b3"><div><p>Sozinho, não. Uma dose tem 109 kcal. O que define ganho ou perda de peso é o total de calorias do dia. O whey só ajuda a chegar na proteína gastando pouca caloria.</p></div></div>
+      </div>
+      <div class="faq__item">
+        <h3><button type="button" aria-expanded="false" aria-controls="faq-4" id="faq-b4">Tem lactose? Tem glúten?<i aria-hidden="true"></i></button></h3>
+        <div class="faq__a" id="faq-4" role="region" aria-labelledby="faq-b4"><div><p>O isolado tem menos de 1 g de lactose por dose. Contém derivados de leite e não contém glúten. Quem tem alergia à proteína do leite não deve consumir.</p></div></div>
+      </div>
+      <div class="faq__item">
+        <h3><button type="button" aria-expanded="false" aria-controls="faq-5" id="faq-b5">Posso tomar creatina junto?<i aria-hidden="true"></i></button></h3>
+        <div class="faq__a" id="faq-5" role="region" aria-labelledby="faq-b5"><div><p>Pode. São 3 g de creatina por dia, todos os dias, em qualquer horário. Misturar na mesma coqueteleira do whey é o jeito mais fácil de não esquecer.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= CTA + RODAPÉ ================= -->
+<footer class="foot" id="rodape">
+  <div class="wrap foot__cta">
+    <h2 class="kinetic" data-max="118"><span class="line">Bora</span><span class="line">crescer.</span></h2>
+    <div class="foot__buy">
+      <p>Whey Isolado 900 g, 30 doses, no sabor que você escolheu lá em cima.</p>
+      <button class="btn btn--pop magnetic" type="button" data-add="iso"><span class="btn__in">Comprar Whey Isolado&nbsp;· R$&nbsp;189,90</span></button>
+    </div>
+  </div>
+
+  <div class="wrap foot__cols">
+    <div>
+      <p class="foot__logo">VULKA</p>
+      <p>Suplementos com a dose escrita na frente do pote.</p>
+    </div>
+    <nav aria-label="Rodapé">
+      <p class="label">Navegar</p>
+      <a href="#formula">Fórmula</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#calculadora">Calculadora</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <div>
+      <p class="label">Aviso</p>
+      <p class="foot__legal">Este produto não é um medicamento e não substitui uma alimentação equilibrada. O consumo deve ser orientado por nutricionista ou médico. Mantenha fora do alcance de crianças. Imagens ilustrativas.</p>
+    </div>
+  </div>
+
+  <p class="foot__word" id="foot-word" aria-hidden="true"><span>VULKA</span></p>
+</footer>
+
+<!-- ================= CARRINHO ================= -->
+<div class="cart" id="cart" inert>
+  <div class="cart__backdrop" data-close></div>
+  <aside class="cart__panel" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+    <header class="cart__head">
+      <h2 id="cart-title">Carrinho</h2>
+      <button type="button" class="cart__close" data-close aria-label="Fechar carrinho">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+      </button>
+    </header>
+    <ul class="cart__items" id="cart-items"></ul>
+    <p class="cart__empty" id="cart-empty">Seu carrinho está vazio. Comece pelo Whey Isolado.</p>
+    <footer class="cart__foot">
+      <p class="cart__total"><span>Total</span><b id="cart-total">R$ 0,00</b></p>
+      <button type="button" class="btn btn--ink" id="checkout"><span class="btn__in">Finalizar pedido</span></button>
+      <p class="cart__note" id="cart-note" hidden></p>
+    </footer>
+  </aside>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/app.js" defer></script>
+</body>
+</html>
